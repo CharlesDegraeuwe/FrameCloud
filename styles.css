@@ -1,0 +1,869 @@
+@font-face {
+  font-family: "SF Pro";
+  src: url("/fonts/SF-Pro-Regular.woff2") format("woff2"),
+    url("/fonts/SF-Pro-Regular.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "SF Pro";
+  src: url("/fonts/SF-Pro-Bold.woff2") format("woff2"),
+    url("/fonts/SF-Pro-Bold.woff") format("woff");
+  font-weight: bold;
+  font-style: normal;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "SF Pro", sans-serif;
+  color: white;
+}
+
+h2 {
+  font-size: 18px;
+}
+body {
+  background-color: #1b1b1d;
+}
+
+header {
+  display: block grid;
+  grid-template-columns: repeat(auto-fill);
+  block-size: 44px;
+  overflow: hidden;
+  position: sticky;
+  margin: 0;
+  padding: 0;
+  height: 44px;
+  padding-left: 16px;
+  padding-right: 6px;
+  min-height: 44px;
+  background-color: #323236;
+  filter: drop-shadow(0px 2px 5px rgba(0, 0, 0, 0.539));
+  z-index: 1;
+}
+
+#logo-header {
+  display: flex; /* Flexbox gebruiken */
+  grid-row: 1;
+  width: max-content;
+  justify-content: flex-start; /* Horizontaal starten (of center als je wilt centreren) */
+  align-items: center; /* Verticaal centreren */
+}
+
+#logo {
+  height: 20px;
+}
+
+#right {
+  grid-row: 1;
+  justify-content: flex-end;
+  display: flex;
+}
+
+#add-item {
+  display: flex; /* Flexbox gebruiken */
+  justify-content: flex-end; /* Horizontaal starten (of center als je wilt centreren) */
+  align-items: center; /* Verticaal centreren */
+  height: 44px;
+  width: max-content;
+  margin-right: 20px;
+}
+
+#add-item-icon {
+  width: 24px;
+  height: 24px;
+  stroke: currentColor;
+  stroke-width: 1.5;
+  fill: none;
+  stroke-linecap: round;
+  cursor: pointer;
+}
+
+#right {
+  grid-row: 1;
+  display: flex;
+}
+
+.icon-wrapper {
+  display: flex;
+  background-color: transparent;
+  padding: 5px;
+  border-radius: 10px;
+  transition-duration: 1s;
+}
+
+.icon-wrapper:hover {
+  background-color: #505055;
+  filter: drop-shadow(0px 2px 5px rgba(0, 0, 0, 0.539));
+  transition-duration: 1s;
+}
+
+.icon-wrapper:active {
+  outline: solid 2px #0099ff;
+  transition: 1ms;
+}
+
+#profile {
+  grid-row: 1;
+  display: flex; /* Flexbox gebruiken */
+  justify-content: flex-end; /* Horizontaal starten (of center als je wilt centreren) */
+  align-items: center; /* Verticaal centreren */
+  height: 44px; /* Specifieke hoogte van de logo-header aanpassen aan header hoogte */
+  width: max-content;
+}
+
+#profile-picture {
+  background: rgb(255, 151, 173);
+  background: linear-gradient(
+    180deg,
+    rgba(255, 151, 173, 1) 0%,
+    rgba(164, 24, 54, 1) 100%
+  );
+  font-size: 15px;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  text-align: center;
+  align-content: center;
+  cursor: pointer;
+}
+
+#application-body {
+  display: grid;
+  position: relative;
+  grid-template-columns: 250px 1fr; /* Sidebar 250px breed, main vult rest in */
+  /*height: calc(100vh - 44px);*/
+  height: 100%;
+  width: 100vw; /* Zorgt ervoor dat de grid de volledige breedte neemt */
+  transition: grid-template-columns 0.3s ease;
+}
+
+.side-bar-list {
+  display: flex;
+  flex-direction: column;
+  width: 250px;
+  font-size: 15px;
+  padding: 53px 9px 0 10px;
+  list-style-type: none;
+  height: calc(100vh - 44px);
+  background-color: #202023;*
+  border-right: 1px solid rgba(0, 0, 0, 0.463);
+  z-index: 0;
+}
+
+#sidebar-toggle:not(:checked) ~ #application-body .side-bar-list {
+  transform: translateX(-100%);
+}
+
+.items input[type="radio"] {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+
+label {
+    display: inline-flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+  
+    align-items: center;
+    justify-content: flex-start;
+    cursor: pointer;
+    padding-right: 8px;
+    height: 32px;
+    border: solid 2px transparent;
+    border-radius: 10px;
+    align-items: center;
+    inline-size: 100%;
+    overflow: hidden;
+    margin-bottom: 2px;
+}
+
+label:hover {
+    background-color: #323236;
+}
+
+label:active {
+    outline: solid 2px #0099ff;
+    transition: 1ms;
+}
+
+#recent-clock-item {
+  fill: #0099ff; /* Kleur aanpassen */
+  height: 20px;
+  margin-right: 5%;
+  margin-left: 8px;
+}
+
+
+#filter-wrapper {
+    display: flex;
+    background-color: transparent;
+    width:75px;
+    border-radius: 10px;
+    height: 32px;
+    transition-duration: 1s;
+    align-items: center;
+    justify-content: flex-start;
+    cursor: pointer;
+}
+
+#filter-wrapper:hover {
+        background-color: #323236;
+      filter: drop-shadow(0px 2px 5px rgba(0, 0, 0, 0.539));
+      transition-duration: 1s;
+}
+
+#filter {
+    width: 100%;
+    display: flex;
+    margin-right: 10%;
+
+}
+
+#bladeren-file-item {
+  fill: #0099ff; /* Kleur aanpassen */
+  height: 20px;
+  margin-right: 5%;
+  margin-left: 8px;
+}
+
+#recently-deleted-bin-item {
+  fill: #0099ff; /* Kleur aanpassen */
+  height: 20px;
+  margin-right: 5%;
+  margin-left: 8px;
+}
+
+main {
+    display: flex;
+    height: calc(100vh - 44px);
+    flex-direction: column;
+    font-size: 15px;
+    padding: 53px 10px 0 10px;
+    list-style-type: none;
+}
+
+
+#sidebar-closer {
+display: inline-flex;
+position: absolute;
+padding-top: 10px;
+padding: 12px 9px 0 10px;
+width: 100%;
+z-index: 1;
+
+}
+
+#closer-wrapper {
+    display: flex;
+    background-color: transparent;
+    width:max-content;
+    border-radius: 10px;
+    height: 32px;
+    transition-duration: 1s;
+    align-items: center;
+    justify-content: flex-start;
+    cursor: pointer;
+
+}
+
+#closer-wrapper:hover {
+    background-color: #323236;
+  filter: drop-shadow(0px 2px 5px rgba(0, 0, 0, 0.539));
+  transition-duration: 1s;
+
+}
+
+#closer {
+    fill: #0099ff;
+    height: 20px;
+    margin-left: 8px;
+    margin-right: 8px;
+}
+
+.hidden-checkbox {
+    display: none;
+  }
+    .application-body {
+    display: grid;
+    grid-template-columns: 250px 1fr; 
+    transition: grid-template-columns 0.3s ease; 
+    height: 100vh;
+  }
+  
+  .side-bar-list {
+    transition: transform 0.3s ease-in-out;
+    transform: translateX(0); 
+  }
+  
+  :has(#toggle-sidebar:checked) .side-bar-list {
+    transform: translateX(-100%); 
+  }
+  
+  :has(#toggle-sidebar:checked) #application-body {
+    grid-template-columns: 0px 1fr;
+  }
+
+  
+
+  #nav-bar{
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+
+  }
+
+
+  #nav-bar-title-row{
+    display: inline-flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+
+  }
+
+  #recent {
+    width:max-content;
+    align-content: center;
+    justify-content: center;
+    margin-right: 10px;
+    padding: 0px;
+    height: 32px;
+  }
+
+  #recent-main-clock-item {
+    fill: grey; /* Kleur aanpassen */
+    height: 25px;
+    padding-left: 10px;
+    padding-right: 1Opx;
+
+  }
+
+  #bladeren-main-item {
+    display: block;
+    fill: none;
+    stroke: grey;
+    height: 25px;
+    padding-left: 10px;
+    padding-right: 1Opx;
+  }
+
+  #delete-main-item {
+    display: block;
+    fill: grey;
+    height: 20px;
+    padding-left: 10px;
+    padding-right: 1Opx;
+  }
+
+  #title-nav-bar {
+    font-size: 25px;
+    font-style: bold;
+    height: 100%;
+    align-content: center;
+  }
+
+  #nav-bar-server-data {
+    width: 100%;
+    height: 30px;
+    align-content: center;
+  }
+
+  #nav-bar-server-data span, p {
+    color: grey;
+  }
+
+
+
+#right-editors {
+    display: inline-flex;
+    width: 100%;
+    justify-content: flex-end;
+}
+
+
+#download, #mail, #bin {
+    display: flex;
+    background-color: tranparant;
+    width: 32px;
+    border-radius: 10px;
+    height: 32px;
+    transition-duration: 1s;
+    align-items: center;
+    margin-left: 10px;
+    justify-content: center;
+    cursor: pointer;
+}
+
+#download:hover, #mail:hover, #bin:hover {
+    background-color: #323236;
+  filter: drop-shadow(0px 2px 5px rgba(0, 0, 0, 0.539));
+  transition-duration: 1s;
+}
+#download-icon {
+    fill: #0099ff; /* Kleur aanpassen */
+    height: 20px;
+}
+
+#mail-icon {
+    stroke: #0099ff; /* Kleur aanpassen */
+    height: 20px;
+}
+
+#bin-icon {
+    fill: #0099ff; /* Kleur aanpassen */
+    height: 20px;
+}
+
+
+
+  .profile-checkbox {
+    display: none;
+  }
+
+/* Stijl voor geselecteerde tabs */
+#tab-recent:checked + label,
+#tab-bladeren:checked + label,
+#tab-verwijderd:checked + label {
+    color: white;
+    background-color: #323236;
+    filter: drop-shadow(0px 2px 5px rgba(0, 0, 0, 0.539));
+}
+
+.tab-content {
+    display: none;
+  }
+  
+  input[type="radio"]:checked + label + .tabs .tab-content {
+    display: block;
+  }
+  
+  .tab-content {
+    display: none;
+  }
+  
+  .tab-content.active {
+    display: block;
+  }
+  
+  #server-bucket {
+    flex: 1;               /* Zorgt ervoor dat de div de resterende ruimte opvult */
+    overflow-y: auto;       /* Zorgt ervoor dat je kunt scrollen als de inhoud groter is dan de div */
+    overflow-x: hidden;
+    text-align: center;
+    margin-top: 25%;
+  }
+
+  #title-server-bucket {
+    font-size: 30px;
+    font-weight: 600;
+    margin-bottom: 30px;
+  }
+
+  #title-server-bucket span {
+    color: grey;
+  }
+
+  #undertitle-server-bucket span {
+    color: grey;
+  }
+
+
+  #titlebar {
+    -webkit-app-region: drag; /* Maakt het mogelijk om de window te slepen */
+    background-color: #333;
+    color: white;
+    padding: 10px;
+    text-align: center;
+    cursor: move; /* Cursor verandert bij hover */
+  }
+
+  .popup {
+    display: none; 
+    flex-direction: column;
+    position: absolute;
+    overflow: hidden;
+    top: 50px; 
+    right: 6px;
+    width: 240px;
+    height: 200px;
+    background-color: #1A1A1D;
+    justify-content: center;
+    border-radius: 15px;
+    align-items: top;
+    z-index: 1000;
+    filter: drop-shadow(0px 5px 10px rgba(0, 0, 0, 0.539));
+    transition-duration: 1s;
+    opacity: O; 
+}
+
+.popup.show {
+  display: flex;
+  opacity: 1; /* Maak de popup zichtbaar */
+  transform: translateY(0); /* Zet de popup op de juiste positie */
+}
+
+#top-popup {
+  display: block;
+  flex-direction: column;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  width: 100%;
+  height: fit-content;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  text-align: left;
+  line-height: 25px;;
+  background-color: #323236;
+
+}
+
+#top-popup h2 {
+color: white;
+}
+
+#top-popup span {
+  color: grey;
+  font-size: 15px;
+}
+
+#bottom-content {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+
+.popup-item {
+  display: block grid;
+  flex-direction: column;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  width: 100%;
+  height: fit-content;
+  padding: 10px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  text-align: left;
+  line-height: 25px;;
+  background-color: #323236;
+}
+
+.popup-content {
+  justify-content: center;
+  display: block;
+  align-items: center;
+  flex-direction: row;
+}
+
+.rij-popup {
+  justify-content: flex-start;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding-left: 10px;
+  width: auto;
+}
+
+
+hr {
+  border: solid 0.2px rgb(60, 60, 60);
+}
+h2 {
+  margin-bottom: 10px; /* Ruimte onder de naam */
+}
+
+.popup span {
+  display: inline-block;
+  margin: 5px 0; /* Ruimte tussen de elementen */
+}
+
+.top-popup span{
+  font-size: 10px;
+}
+
+hr.item-popup {
+  border: 1px solid #fff;
+  width: calc(100%-20px);
+}
+
+.item-popup {
+  cursor: pointer;
+  align-items: center;
+  padding: 10px;
+}
+
+.rij-popup:hover {
+  background-color: #505055;
+}
+#log-out {
+  color: rgb(193, 0, 0);
+}
+
+
+#settings {
+  display: inline-block;
+  fill: #0099ff;
+  width: 20px;
+}
+
+#arrow {
+  display: inline-block;
+  stroke: white;
+  stroke-width: 2px;
+  width: 20px;
+}
+#log-out-icon {
+  display: inline-block;
+  fill: rgb(193, 0, 0);
+  width: 20px;
+}
+
+
+#popup-2 {
+  display: flex; 
+  flex-direction: column;
+  position: absolute;
+  overflow: hidden;
+  top: 50px; 
+  right: 70px;
+  width: 240px;
+  height: 200px;
+  background-color: #1A1A1D;
+  justify-content: center;
+  border-radius: 15px;
+  align-items: top;
+  z-index: 1000;
+  filter: drop-shadow(0px 5px 10px rgba(0, 0, 0, 0.539));
+  transition-duration: 1s;
+  opacity: O; 
+}
+
+#popup-2.show {
+display: flex;
+opacity: 1; /* Maak de popup zichtbaar */
+}
+
+#login-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+  height: fit-content;
+  background-color: #202023;
+  filter: drop-shadow(0px 10px 15px rgba(0, 0, 0, 0.539));
+  border-radius: 25px;
+
+}
+
+#login-container-span {
+  font-size: 50px;
+}
+
+#application-body2 {
+  display: flex;
+  justify-content: center;
+  padding: 3%;
+  height: calc(100vh - 44px);
+
+}
+
+#profile-login {
+  display: flex; /* Flexbox gebruiken */
+  justify-content: center;/* Horizontaal starten (of center als je wilt centreren) */
+  align-items: center; /* Verticaal centreren */
+  height: 100px; /* Specifieke hoogte van de logo-header aanpassen aan header hoogte */
+  margin-bottom: 30px;
+}
+
+.icon-wrapper {
+  display: flex;
+  background-color: transparent;
+  padding: 5px;
+  border-radius: 10px;
+  transition-duration: 1s;
+}
+
+
+#login-header {
+  display: block grid;
+  grid-template-columns: repeat(auto-fill);
+  block-size: 44px;
+  overflow: hidden;
+  position: sticky;
+  margin: 0;
+  padding: 0;
+  height: 44px;
+  padding-left: 16px;
+  padding-right: 16px;
+  min-height: 44px;
+
+  z-index: 1;
+}
+
+#profile2 {
+  grid-row: 1;
+  display: flex; /* Flexbox gebruiken */
+  justify-content: flex-end; /* Horizontaal starten (of center als je wilt centreren) */
+  align-items: center; /* Verticaal centreren */
+  height: 44px; /* Specifieke hoogte van de logo-header aanpassen aan header hoogte */
+  width: max-content;
+}
+
+#three-dots {
+  width: 20px;
+  height: 20px;
+  stroke-width: 0;
+  fill: white;
+  stroke-linecap: round;
+  cursor: pointer;
+  margin-top: 3px;
+}
+
+#logo-2 {
+  height: 15px;
+  fill: white;
+}
+
+.icon-wrapper2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
+  width: 35px;
+  height: 35px;
+  padding: 5px;
+  border-radius: 10px;
+  transition-duration: 1s;
+}
+
+.icon-wrapper2:hover {
+  background-color: #505055;
+}
+
+.icon-wrapper2:active {
+  outline: solid 2px #0099ff;
+  transition: 1ms;
+}
+
+#login {
+  display: flex;
+  flex-direction: column;
+}
+
+
+#enter {
+  stroke: #505055; /* Kleur aanpassen */
+  height: 40px;
+  display: flex;
+  right: 0px;
+  cursor: pointer;
+}
+
+#enter:hover {
+  stroke: #949494;
+  transition-duration: 0.5s;
+}
+
+#enter:active {
+  stroke:#0099ff;
+}
+
+input {
+  margin-top: 15px;
+  left: 12px;
+  height: 30px;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  font-size: 18px;
+}
+
+#bar {
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px;
+  background-color: #27272b;
+  padding: 10px 12px 10px 10px;
+  font-size: 15px;
+  border: solid 2px;
+  border-color:#505055;
+  outline: none;
+  height: 55px;
+  
+  }
+  
+  #bar:focus-within {
+    border-color: #0099ff;
+  }
+
+#label-login {
+  display: flex;
+  position: absolute;
+  margin-top: 12px;
+  width: 100%;
+  margin-left: 10px;
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.6);
+  transition: all 0.3s ease-in-out;
+  pointer-events: none; /* voorkomt dat je op het label klikt */
+}
+
+#login:focus-within #label-login,
+input:not(:placeholder-shown) + #label-login {
+  font-size: 10px;
+  margin-top: 2px;
+}
+
+input::placeholder {
+  color: transparent; /* Zorgt ervoor dat de placeholder niet zichtbaar is */
+}
+
+
+
+
+#bovenste-lijn {
+  width: 40%;
+  margin-bottom: 10%;
+}
+
+#middelste-lijn {
+  margin-bottom: 5%;
+}
+
+#middelste-lijn h2 {
+  font-size: 25px;
+}
+#onderste-lijn {
+  width: 100%;
+}
+
+#log-in {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;    
+  background-color: transparent;
+  width: 100%;
+  height: 100%;
+  padding: 15%;
+
+}
+
+#login-image {
+  width: 100%;
+}
+
+#password {
+display: none;
+}
