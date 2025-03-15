@@ -1,0 +1,138 @@
+@font-face {
+  font-family: "SF Pro";
+  src: url("/fonts/SF-Pro-Regular.woff2") format("woff2"),
+    url("/fonts/SF-Pro-Regular.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "SF Pro";
+  src: url("/fonts/SF-Pro-Bold.woff2") format("woff2"),
+    url("/fonts/SF-Pro-Bold.woff") format("woff");
+  font-weight: bold;
+  font-style: normal;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "SF Pro", sans-serif;
+  color: white;
+}
+
+h2 {
+  font-size: 18px;
+}
+body {
+  background-color: #1b1b1d;
+}
+
+header {
+  display: block grid;
+  grid-template-columns: repeat(auto-fill);
+  block-size: 44px;
+  overflow: hidden;
+  position: sticky;
+  margin: 0;
+  padding: 0;
+  height: 44px;
+  padding-left: 16px;
+  padding-right: 6px;
+  min-height: 44px;
+  background-color: #323236;
+  filter: drop-shadow(0px 2px 5px rgba(0, 0, 0, 0.539));
+  z-index: 1;
+}
+
+#login-pagina {
+  height: 44px;
+  background-color: transparent;
+}
+
+#logo-header {
+  display: flex; /* Flexbox gebruiken */
+  grid-row: 1;
+  width: max-content;
+  justify-content: flex-start; /* Horizontaal starten (of center als je wilt centreren) */
+  align-items: center; /* Verticaal centreren */
+}
+
+#logo {
+  height: 20px;
+}
+
+#right {
+  grid-row: 1;
+  justify-content: flex-end;
+  display: flex;
+}
+
+#add-item {
+  display: flex; /* Flexbox gebruiken */
+  justify-content: flex-end; /* Horizontaal starten (of center als je wilt centreren) */
+  align-items: center; /* Verticaal centreren */
+  height: 44px;
+  width: max-content;
+  margin-right: 20px;
+}
+
+#add-item-icon {
+  width: 24px;
+  height: 24px;
+  stroke: currentColor;
+  stroke-width: 1.5;
+  fill: none;
+  stroke-linecap: round;
+  cursor: pointer;
+}
+
+#right {
+  grid-row: 1;
+  display: flex;
+}
+
+.icon-wrapper {
+  display: flex;
+  background-color: transparent;
+  padding: 5px;
+  border-radius: 10px;
+  transition-duration: 1s;
+}
+
+.icon-wrapper:hover {
+  background-color: #505055;
+  filter: drop-shadow(0px 2px 5px rgba(0, 0, 0, 0.539));
+  transition-duration: 1s;
+}
+
+.icon-wrapper:active {
+  outline: solid 2px #0099ff;
+  transition: 1ms;
+}
+
+#profile {
+  grid-row: 1;
+  display: flex; /* Flexbox gebruiken */
+  justify-content: flex-end; /* Horizontaal starten (of center als je wilt centreren) */
+  align-items: center; /* Verticaal centreren */
+  height: 44px; /* Specifieke hoogte van de logo-header aanpassen aan header hoogte */
+  width: max-content;
+}
+
+#profile-picture {
+  background: rgb(255, 151, 173);
+  background: linear-gradient(
+    180deg,
+    rgba(255, 151, 173, 1) 0%,
+    rgba(164, 24, 54, 1) 100%
+  );
+  font-size: 15px;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  text-align: center;
+  align-content: center;
+  cursor: pointer;
+}

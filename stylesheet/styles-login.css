@@ -1,0 +1,297 @@
+@import url("styles.css");
+#application-body2 {
+  display: flex;
+  justify-content: center;
+  padding: 3%;
+  height: calc(100vh - 44px);
+}
+
+#login-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 550px;
+  height: 550px;
+  background-color: #202023;
+  filter: drop-shadow(0px 10px 15px rgba(0, 0, 0, 0.539));
+  border-radius: 25px;
+  overflow: hidden;
+  padding-left: 100px;
+  padding-right: 100px;
+  padding-top: 30px;
+}
+
+#images-tekst-container {
+  display: flex;
+  height: 50%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: none;
+  padding: none;
+}
+
+#form-buttons-container {
+  height: 50%;
+}
+#profile-login {
+  display: flex; /* Flexbox gebruiken */
+  justify-content: center; /* Horizontaal starten (of center als je wilt centreren) */
+  align-items: center; /* Verticaal centreren */
+  height: 100px; /* Specifieke hoogte van de logo-header aanpassen aan header hoogte */
+  margin-bottom: 30px;
+}
+
+.icon-wrapper {
+  display: flex;
+  background-color: transparent;
+  padding: 5px;
+  border-radius: 10px;
+  transition-duration: 1s;
+}
+
+#login-header {
+  display: block grid;
+  grid-template-columns: repeat(auto-fill);
+  block-size: 44px;
+  overflow: hidden;
+  position: sticky;
+  margin: 0;
+  padding: 0;
+  height: 44px;
+  padding-left: 16px;
+  padding-right: 16px;
+  min-height: 44px;
+
+  z-index: 1;
+}
+
+#profile2 {
+  grid-row: 1;
+  display: flex; /* Flexbox gebruiken */
+  justify-content: flex-end; /* Horizontaal starten (of center als je wilt centreren) */
+  align-items: center; /* Verticaal centreren */
+  height: 44px; /* Specifieke hoogte van de logo-header aanpassen aan header hoogte */
+  width: max-content;
+}
+
+#three-dots {
+  width: 20px;
+  height: 20px;
+  stroke-width: 0;
+  fill: white;
+  stroke-linecap: round;
+  cursor: pointer;
+  margin-top: 3px;
+}
+
+#logo-2 {
+  height: 15px;
+  fill: white;
+  display: block;
+  position: fixed;
+  margin-top: 0px;
+}
+
+.icon-wrapper2 {
+  margin-top: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
+  width: 35px;
+  height: 35px;
+  padding: 5px;
+  border-radius: 10px;
+  transition-duration: 1s;
+}
+
+.icon-wrapper2:hover {
+  background-color: #505055;
+}
+
+.icon-wrapper2:active {
+  outline: solid 2px #0099ff;
+  transition: 1ms;
+}
+
+form {
+  width: 100%;
+  background-color: #252527;
+  border: 1px solid #66666b;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  border-style: inner;
+  border-radius: 15px;
+  overflow: hidden;
+  transition: height 0.3s ease-in-out;
+  margin-bottom: 10px;
+}
+
+form:focus-within {
+  border: 1px solid #0099ff;
+  box-shadow: inset 0 0 0 1px #0099ff;
+}
+
+form:focus-within > hr {
+  border: 1px solid #0099ff;
+}
+
+.form-label {
+  font-size: 15px;
+  position: relative;
+  z-index: 1;
+  bottom: 5px;
+}
+
+input {
+  position: relative;
+  width: 100%;
+  margin-top: 18px;
+  padding-left: 15px;
+  padding-right: 15px;
+  font-size: 18px;
+  border: none;
+  outline: none;
+  height: 40px;
+  z-index: 2;
+  background-color: transparent;
+}
+
+hr {
+  border: 1px solid #505055;
+  background-color: transparent;
+}
+
+input::placeholder {
+  opacity: 0;
+}
+
+form span {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding-left: 15px;
+  padding-right: 15px;
+  transform: translateY(25px);
+  transition-duration: 200ms;
+  font-size: 15px;
+  color: #66666b;
+}
+
+label:focus-within > span,
+input:not(:placeholder-shown) + span {
+  transform: translateY(13px);
+  font-size: 10px;
+}
+
+#gradient-inlog-container {
+  width: 25%;
+  margin-bottom: 30px;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 40px;
+  font-weight: 600;
+  font-size: 27px;
+}
+
+#enter {
+  display: inline-block;
+  justify-content: flex-end;
+  stroke: white;
+  stroke-width: 1.5px;
+  width: 30px;
+  cursor: pointer;
+}
+
+#enter-button {
+  background-color: transparent;
+  border: none;
+  padding-right: 15px;
+  padding-top: 15px;
+}
+
+#wachtwoord {
+  display: flex;
+  flex-direction: row;
+}
+
+.checkbox-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  gap: 10px;
+}
+
+input[type="checkbox"] {
+  appearance: none;
+  -webkit-appearance: none; /* Add webkit prefix for Safari */
+  -moz-appearance: none; /* Add moz prefix for Firefox */
+  width: 15px;
+  height: 15px;
+  box-sizing: border-box; /* Ensures padding doesn't affect dimensions */
+  padding: 0;
+  border: 1.5px solid #505055;
+  border-radius: 4px;
+  background-color: transparent;
+  cursor: pointer;
+  margin-bottom: 20px;
+  position: relative;
+  display: inline-block; /* Helps maintain dimensions */
+}
+
+/* Stijl voor geselecteerde checkbox */
+input[type="checkbox"]:checked {
+  background-color: #0099ff; /* Achtergrondkleur voor geselecteerde checkbox */
+  border-color: #0099ff;
+}
+
+input[type="checkbox"]:checked::before {
+  content: ""; /* Voegt een leeg pseudo-element toe */
+  position: absolute;
+  left: 4px;
+  top: 0.5px;
+  width: 3px; /* Breedte van het vinkje */
+  height: 8px; /* Hoogte van het vinkje */
+  border: solid white; /* Wit vinkje */
+  border-width: 0 2px 2px 0; /* Vinkje tekenen */
+  transform: rotate(45deg); /* Het vinkje draaien */
+}
+#register-link-wrapper {
+  display: flex;
+  width: 100%;
+  justify-content: ;
+}
+
+#register {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-size: 15px;
+  text-align: center;
+  line-height: 20px;
+  margin-bottom: 30px;
+  gap: 5px;
+}
+
+#register span,
+#register a {
+  color: #8c8c8c;
+  text-decoration-color: #8c8c8c;
+}
+
+#register-arrow {
+  height: 15px;
+  width: 15px;
+  background-color: green;
+  stroke: #8c8c8c;
+  padding-top: 10px;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}

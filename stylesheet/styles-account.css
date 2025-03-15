@@ -1,0 +1,41 @@
+@import url(styles.css);
+#application-body {
+  display: flex;
+  flex-direction: column;
+  padding: 3%;
+  padding-left: 10%;
+  padding-right: 10%;
+  height: calc(100vh - 44px);
+}
+
+#titles-container {
+}
+
+#account-wrapper {
+  background-color: green;
+  display: flex;
+  flex-direction: ;
+}
+
+#personal-data-container {
+  background-color: red;
+}
+
+#storage {
+  background-color: blue;
+}
+
+#storage-bar-wrapper {
+  width: 100%;
+  height: 20px;
+  background-color: #e0e0e0; /* Lichte achtergrondkleur voor de bar */
+  border-radius: 10px;
+  margin: 10px 0;
+}
+
+#storage-bar {
+  height: 100%;
+  background-color: #0099ff; /* Kleur van de progressbar */
+  border-radius: 10px;
+  width: 0%; /* Begin met een lege bar */
+}
