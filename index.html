@@ -65,7 +65,7 @@
                 <div class="icon-wrapper2">
                     <div id="profile-picture">
                         <img id="profile-image" class="profielfoto" src="" alt="Profielfoto" style="display: none;">
-                        <span></span>
+                        <span id="profile-initials"></span>
                     </div>
                 </div>
             
@@ -79,9 +79,9 @@
 
     <div id="popup" class="popup">
         <div id="top-popup" class="popup-content">
-                <h2></h2>
+                <h2><span id="naam-popup"></span></h2>
 
-                <span>
+                <span id="email-popup">
                     charles.degraeuwe@icloud.com
                 </span>
         </div>
@@ -159,7 +159,7 @@
 	</g>
 </g>
 </svg>
-                <span id="log-out" class="item-popup">Log Out</span>
+                <a href="login.html"><span id="log-out" class="item-popup">Log Out</span></a>
             </div>
         </div>
 
@@ -459,24 +459,6 @@
     <script type="module" src="scripts/script.js"></script>
     <script typd="module" src="scripts/renderer.js"></script>
     <script src="scripts/index.js"></script>
-    <script type="text/javascript">
-  function fetchUserData() {
-    fetch('get_user.php')
-      .then(response => response.json())
-      .then(data => {
-        if (data.name && data.email) {
-          document.querySelector("#profile-picture span").textContent = data.name;
-          document.querySelector("#popup h2").textContent = data.name;
-          document.querySelector("#popup span").textContent = data.email;
-        }
-      })
-      .catch(error => console.error('Error fetching user data:', error));
-  }
-
-  // Fetch user data on page load
-  window.onload = fetchUserData;
-
-</script>
   </body>
 </html>
 
