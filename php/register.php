@@ -1,24 +1,49 @@
 <?php
-require 'config.php';
+echo '<pre>';
+print_r($_POST);
+echo '</pre>';
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $username = $_POST["username"];
-    $email = $_POST["email"];
-    $password = password_hash($_POST["password"], PASSWORD_DEFAULT); // Beveilig het wachtwoord
+// Databaseverbinding
+$servername = "localhost";
+$username = "root";
+$password = "";
+$database = "framecloud"; // De database-naam die uit het SQL-bestand komt
 
-    // Controleer of de gebruiker al bestaat
-    $stmt = $pdo->prepare("SELECT id FROM users WHERE email = ?");
-    $stmt->execute([$email]);
+// Maak de verbinding
+$conn = new mysqli($servername, $username, $password, $database);
 
-    if ($stmt->fetch()) {
-        echo "Deze e-mail is al geregistreerd.";
-    } else {
-        $stmt = $pdo->prepare("INSERT INTO users (username, email, password_hash) VALUES (?, ?, ?)");
-        if ($stmt->execute([$username, $email, $password])) {
-            echo "Registratie succesvol!";
-        } else {
-            echo "Er is iets misgegaan.";
-        }
-    }
+// Controleer de verbinding
+if ($conn->connect_error) {
+    die("Verbinding mislukt: " . $conn->connect_error);
 }
+
+// Gegevens van het formulier ophalen
+$email = $_POST['email'] ?? '';
+$name = $_POST['name'] ?? '';
+$password = $_POST['password'] ?? '';
+
+
+
+// Wachtwoord hash voor veiligheid
+
+
+// SQL-query om gegevens in te voegen
+$sql = "INSERT INTO `users` (`id`, `username`, `email`, `password`) VALUES (NULL, '$name', '$email', '$password')";
+
+// Prepareer en bind de query
+$stmt = $conn->prepare($sql);
+
+
+// Voer de query uit
+if ($stmt->execute()) {
+    echo "Registratie succesvol.";
+} else {
+    echo "Fout bij het registreren: " . $conn->error;
+}
+
+// Sluit de verbinding
+$stmt->close();
+$conn->close();
+
 ?>
+

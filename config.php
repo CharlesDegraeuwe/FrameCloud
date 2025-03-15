@@ -1,8 +1,8 @@
 <?php
 $host = 'localhost'; // of de juiste server
-$dbname = 'FrameCloud'; // vervang door je eigen database naam
-$username = 'MODERATOR'; // vervang door je MySQL gebruikersnaam
-$password = 'wachtwoord'; // vervang door je MySQL wachtwoord
+$dbname = 'framecloud'; // vervang door je eigen database naam
+$username = 'root'; // vervang door je MySQL gebruikersnaam
+$password = ''; // vervang door je MySQL wachtwoord
 
 // Maak verbinding
 try {
@@ -13,6 +13,6 @@ try {
     echo "Verbinding mislukt: " . $e->getMessage();
 }
 
-$pdo = new PDO("mysql:host=$host;port=3306;dbname=$dbname", $username, $password);
+
 
 ?>
