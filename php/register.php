@@ -12,38 +12,25 @@ $database = "framecloud"; // De database-naam die uit het SQL-bestand komt
 // Maak de verbinding
 $conn = new mysqli($servername, $username, $password, $database);
 
-// Controleer de verbinding
+// Controleren of de verbinding gelukt is
 if ($conn->connect_error) {
     die("Verbinding mislukt: " . $conn->connect_error);
 }
 
-// Gegevens van het formulier ophalen
-$email = $_POST['email'] ?? '';
-$name = $_POST['name'] ?? '';
-$password = $_POST['password'] ?? '';
-
-
-
-// Wachtwoord hash voor veiligheid
-
+// Gegevens uit het formulier ophalen
+$naam = $_POST['name'];
+$email = $_POST['email'];
+$password = $_POST['password'];
 
 // SQL-query om gegevens in te voegen
-$sql = "INSERT INTO `users` (`id`, `username`, `email`, `password`) VALUES (NULL, '$name', '$email', '$password')";
+$sql = "INSERT INTO `users` (`id`, `username`, `email`, `password`) VALUES (NULL, '$naam', '$email', '$password');";
 
-// Prepareer en bind de query
-$stmt = $conn->prepare($sql);
-
-
-// Voer de query uit
-if ($stmt->execute()) {
-    echo "Registratie succesvol.";
+if ($conn->query($sql) === TRUE) {
+    header("location:../index.html");
 } else {
-    echo "Fout bij het registreren: " . $conn->error;
+    echo "Fout bij opslaan: " . $conn->error;
 }
 
-// Sluit de verbinding
-$stmt->close();
+// Verbinding sluiten
 $conn->close();
-
-?>
 
