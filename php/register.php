@@ -24,7 +24,7 @@ $password = $_POST['password'];
 $sql = "INSERT INTO `users` (`id`, `username`, `email`, `password`) VALUES (NULL, '$naam', '$email', '$password');";
 
 if ($conn->query($sql) === TRUE) {
-    header("location:../index.html");
+    header("location:../login.html");
 } else {
     echo "Fout bij opslaan: " . $conn->error;
 }
