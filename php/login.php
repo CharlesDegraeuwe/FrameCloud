@@ -33,8 +33,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $_SESSION['username'] = $row['username'];
         $_SESSION['email'] = $row['email'];
         
+        $_SESSION['user'] = [
+            'id' => $user['id'],
+            'name' => $user['name'],
+            'email' => $email
+            ];
+
         // Redirect to dashboard or home page
         header("Location: ../index.html");
+     
+        
         exit;
     } else {
         // User not found, redirect back to login page with error
