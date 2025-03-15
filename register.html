@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="stylesheet/styles-login.css" />
     <link rel="icon" type=image/x-con href="icons/ico's/favicon.ico">
-    <title>Log In | FrameCloud</title>
+    <title>Registreren | FrameCloud</title>
   </head>
   <body>
     <header id="login-pagina">
@@ -80,18 +80,24 @@
           <img src="images/gradient.png" id="gradient-inlog-container" />
 
           <h1>
-            <span>Inloggen met </span><br /><span>Frame Cloud Account</span>
+            <span>Registreren bij</span> <br />
+            <span>Frame Cloud</span>
           </h1>
         </div>
 
         <div id="form-buttons-container">
-          <form action="php/login.php" method="POST">
+          <form action="php/register.php" method="POST">
             <label for="email" class="form-label">
               <input type="email" id="email" placeholder="Email" required />
               <span>Emailadres of telefoonnummer</span>
             </label>
             <hr />
 
+            <label for="username" id="username" class="form-label">
+              <input type="name" id="name" placeholder="password" required />
+              <span>Naam</span>
+            </label>
+            <hr />
             <label for="password" id="wachtwoord" class="form-label">
               <input
                 type="password"
@@ -113,20 +119,8 @@
 
           <div id="register-link-wrapper">
             <div id="register">
-              <a href="register.html"><span>Registeren</span> </a>
+              <a href="login.html"><span>Inloggen</span> </a>
             </div>
-          </div>
-
-          <div class="checkbox-wrapper">
-            <input
-              id="checkbox"
-              class="substituted"
-              type="checkbox"
-              aria-hidden="true"
-            />
-            <label for="keep-logged-in" id="checkbox-label"
-              >Houd me ingelogd</label
-            >
           </div>
         </div>
       </div>
