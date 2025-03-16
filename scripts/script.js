@@ -1,3 +1,8 @@
+
+document.getElementById("password-form").addEventListener("submit", function(e) {
+    console.log("Formulier wordt ingediend..."); // 🔍 Controleer of de knop werkt
+    e.preventDefault();
+
 document.addEventListener("DOMContentLoaded", () => {
   // Stel de standaard tab in
   const defaultTab = document.querySelector(
@@ -101,4 +106,40 @@ document.addEventListener("DOMContentLoaded", function () {
   input.addEventListener("blur", checkInput);
 
   checkInput(); // Check status bij het laden van de pagina
+});
+document.getElementById("password-form").addEventListener("submit", function(e) {
+    e.preventDefault(); // Voorkomt standaard formulierindiening
+
+    let currentPassword = document.getElementById("current-password").value;
+    let newPassword = document.getElementById("new-password").value;
+    let confirmPassword = document.getElementById("confirm-password").value;
+    let messageBox = document.getElementById("password-message");
+
+    // Controleer of het nieuwe wachtwoord en bevestigingswachtwoord overeenkomen
+    if (newPassword !== confirmPassword) {
+        messageBox.style.color = "red";
+        messageBox.textContent = "De nieuwe wachtwoorden komen niet overeen!";
+        return;
+    }
+
+    // Verstuur het verzoek naar de server
+    fetch("change_password.php", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ currentPassword, newPassword })
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            messageBox.style.color = "green";
+            messageBox.textContent = "Wachtwoord succesvol gewijzigd!";
+        } else {
+            messageBox.style.color = "red";
+            messageBox.textContent = data.message;
+        }
+    })
+    .catch(error => {
+        messageBox.style.color = "red";
+        messageBox.textContent = "Er is een fout opgetreden.";
+    });
 });

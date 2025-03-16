@@ -41,3 +41,63 @@ document.addEventListener("DOMContentLoaded", function () {
       console.error("Error fetching user data:", error);
     });
 });
+
+document.addEventListener("DOMContentLoaded", function () {
+    console.log("🚀 JavaScript geladen!");
+
+    let form = document.getElementById("password-form");
+
+    if (form) {
+        console.log("✅ Formulier gevonden!");
+        form.addEventListener("submit", function (e) {
+            e.preventDefault();
+
+            let currentPassword = document.getElementById("current-password").value;
+            let newPassword = document.getElementById("new-password").value;
+            let confirmPassword = document.getElementById("confirm-password").value;
+            let messageBox = document.getElementById("password-message");
+
+            console.log("🔍 Ingevoerde wachtwoorden:");
+            console.log("Huidig:", currentPassword);
+            console.log("Nieuw:", newPassword);
+            console.log("Bevestiging:", confirmPassword);
+
+            if (newPassword !== confirmPassword) {
+                messageBox.style.color = "red";
+                messageBox.textContent = "❌ De nieuwe wachtwoorden komen niet overeen!";
+                return;
+            }
+
+            // Verstuur het verzoek naar de server
+            fetch("change_password.php", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ currentPassword, newPassword })
+            })
+            .then(response => {
+                // Check if response is OK before trying to parse JSON
+                if (!response.ok) {
+                    throw new Error('Server responded with status: ' + response.status);
+                }
+                return response.json();
+            })
+            .then(data => {
+                console.log("🔄 Server Response:", data);
+                if (data.success) {
+                    messageBox.style.color = "green";
+                    messageBox.textContent = "✅ Wachtwoord succesvol gewijzigd!";
+                } else {
+                    messageBox.style.color = "red";
+                    messageBox.textContent = "❌ " + data.message;
+                }
+            })
+            .catch(error => {
+                console.error("❌ Fout bij communiceren met de server:", error);
+                messageBox.style.color = "red";
+                messageBox.textContent = "❌ Er is een fout opgetreden.";
+            });
+        });
+    } else {
+        console.log("❌ Formulier NIET gevonden! Controleer de ID in je HTML.");
+    }
+});

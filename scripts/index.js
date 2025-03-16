@@ -40,43 +40,4 @@ document.addEventListener("DOMContentLoaded", function () {
 document.getElementById("add-item").addEventListener("click", function() {
     document.getElementById("upload-container").classList.toggle("hidden");
 });
-const dropArea = document.getElementById("drop-area");
-const fileInput = document.getElementById("file-input");
-
-dropArea.addEventListener("dragover", (e) => {
-    e.preventDefault();
-    dropArea.style.backgroundColor = "#e0f7ff";
-});
-
-dropArea.addEventListener("dragleave", () => {
-    dropArea.style.backgroundColor = "white";
-});
-
-dropArea.addEventListener("drop", (e) => {
-    e.preventDefault();
-    dropArea.style.backgroundColor = "white";
-    const files = e.dataTransfer.files;
-    uploadFiles(files);
-});
-
-dropArea.addEventListener("click", () => fileInput.click());
-
-fileInput.addEventListener("change", (e) => {
-    uploadFiles(e.target.files);
-});
-
-function uploadFiles(files) {
-    const formData = new FormData();
-    for (const file of files) {
-        formData.append("files[]", file);
-    }
-
-    fetch("upload.php", {
-        method: "POST",
-        body: formData,
-    })
-    .then(response => response.text())
-    .then(data => alert("Upload succesvol!"))
-    .catch(error => alert("Upload mislukt!"));
-}
 
