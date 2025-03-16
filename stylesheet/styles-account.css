@@ -313,7 +313,7 @@
 }
 
 .overview-pc-buttons-opmaak:hover {
-  transform: scale(101%);
+  background-color: #9c9b9b;
 }
 
 #logout-button-wrapper {
@@ -344,9 +344,13 @@
 }
 
 #logout-button:hover {
-  background-color: rgba(147, 9, 9, 0.141);
+  background-color: rgba(255, 255, 255, 0.141);
 }
 
 #logout-button span {
   color: white;
+}
+
+#add-item {
+  display: none;
 }
