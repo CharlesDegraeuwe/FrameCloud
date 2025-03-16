@@ -32,6 +32,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
       document.getElementById("email-popup").textContent = data.email;
       document.getElementById("profile-initials").textContent = initials(data);
+      document.getElementById("naam-profiel-dashboard").textContent =
+        data.username;
+
+      document.getElementById("email-dashboard").textContent = data.email;
     })
     .catch((error) => {
       console.error("Error fetching user data:", error);

@@ -1,4 +1,5 @@
 @import url(styles.css);
+@import url(styles-index.css);
 #application-body {
   display: flex;
   flex-direction: column;
@@ -7,35 +8,345 @@
   padding-right: 10%;
   height: calc(100vh - 44px);
 }
-
 #titles-container {
-}
-
-#account-wrapper {
-  background-color: green;
+  width: 100%;
   display: flex;
-  flex-direction: ;
+  flex-direction: column;
 }
 
-#personal-data-container {
-  background-color: red;
+#paginas-icoon-titel {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
 }
 
+#paginas-icoon-titel svg {
+  fill: white;
+}
+#paginas,
+#paginas span {
+  display: flex;
+  flex-direction: column;
+  font-size: 20px;
+  font-weight: 800;
+  gap: 10px;
+}
+
+#paginas hr {
+  color: #5b5b5b;
+  height: 1px;
+}
+#account-wrapper {
+  display: flex;
+  flex-direction: row;
+  padding-top: 5%;
+}
+
+#server-data-container {
+  width: 50%;
+  padding-left: 5%;
+}
+
+#inner-line-account-wrapper {
+  width: 1px;
+  background-color: #505055;
+  height: 100%;
+}
 #storage {
-  background-color: blue;
+  width: 50%;
+  padding-right: 5%;
+  border-right-width: 1px solid grey;
 }
 
+#account {
+}
+
+#account-dashboard {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  background: rgb(149, 192, 255);
+  background: linear-gradient(
+    -90deg,
+    rgba(149, 192, 255, 1) 0%,
+    rgba(50, 85, 221, 1) 70%,
+    rgba(47, 71, 216, 1) 100%
+  );
+  filter: drop-shadow(0px 10px 15px rgba(0, 0, 0, 0.539));
+  border-radius: 20px;
+  padding: 5%;
+}
+
+#naam-profiel-dashboard {
+  font-size: 40px;
+  font-weight: 800;
+}
+#dashboard {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  background-color: #202023;
+  filter: drop-shadow(0px 10px 15px rgba(0, 0, 0, 0.539));
+  border-radius: 20px;
+  padding: 5%;
+}
+
+#dashboard-wrapper {
+  margin-top: 10%;
+}
+#ondertekst-dashboard {
+  font-family: "sf pro", sans-serif;
+  line-height: 25px;
+  color: #989898;
+}
+#titel-dashboard {
+  font-size: 40px;
+  font-weight: 800;
+}
 #storage-bar-wrapper {
   width: 100%;
-  height: 20px;
-  background-color: #e0e0e0; /* Lichte achtergrondkleur voor de bar */
+  height: 15px;
+  background-color: #2c2c2c; /* Lichte achtergrondkleur voor de bar */
   border-radius: 10px;
   margin: 10px 0;
 }
 
 #storage-bar {
   height: 100%;
-  background-color: #0099ff; /* Kleur van de progressbar */
+  background: rgb(149, 192, 255);
+  background: linear-gradient(
+    -90deg,
+    rgba(149, 192, 255, 1) 0%,
+    rgba(50, 85, 221, 1) 70%,
+    rgba(47, 71, 216, 1) 100%
+  );
+  filter: drop-shadow(3px 3px 3px rgba(149, 191, 255, 0.347));
   border-radius: 10px;
-  width: 0%; /* Begin met een lege bar */
+  width: 50%; /* Begin met een lege bar */
+}
+#tekst {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 20px;
+  font-weight: 800;
+  font-size: 18px;
+}
+
+#beschikbaar-gebruikt {
+  display: flex;
+  flex-direction: row;
+  gap: 5px;
+}
+
+#beschikbaar-tekst span {
+  color: #9c9b9b;
+}
+
+#totale-opslag {
+  display: flex;
+  justify-self: flex-start;
+  background-color: white;
+  font-weight: 800;
+  color: black;
+  border-radius: 10px;
+  height: 45px;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  width: 15%;
+  padding-top: 4px;
+  filter: drop-shadow(0px -3px 5px rgba(255, 255, 255, 0.539));
+}
+
+#totale-opslag span {
+  color: black;
+}
+
+#beschikbaar-gebruikt {
+  display: flex;
+  justify-content: flex-end;
+  align-items: end;
+  flex-direction: row;
+
+  width: 100%;
+}
+
+#dashboard table {
+  margin-top: 20px;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#account-dashboard-tabel table {
+  margin-top: 20px;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#cls-1 {
+  fill: white;
+}
+#dashboard th {
+  text-align: left;
+  font-size: 18px;
+  font-weight: 800;
+}
+
+#dashboard th:nth-child(2) {
+  width: 20%;
+}
+
+#dashboard th:nth-child(3) {
+  width: 40%;
+  text-align: right;
+}
+
+#account-dashboard-tabel td {
+  width: 70%;
+  text-align: left;
+}
+
+#dashboard th:nth-child(3) {
+  text-align: right;
+}
+
+#account-dashboard-tabel td:nth-child(3) {
+  text-align: right;
+  font-weight: 800;
+}
+
+#overview-pc-info-container {
+  display: grid;
+  grid-template-columns: repeat(2, 50%);
+  row-gap: 50px;
+}
+
+.pc-info {
+  width: 250px;
+  height: 250px;
+  padding: 25px;
+  background-color: #202023;
+  filter: drop-shadow(0px 15px 20px rgba(0, 0, 0, 0.539));
+  border-radius: 20px;
+}
+
+.pc-info table {
+  height: 100%;
+  width: 100%;
+}
+
+.pc-info td:first-child {
+  color: #0099ff;
+}
+
+.pc-info th:first-child {
+  width: 2%;
+}
+
+.pc-info th:nth-child(3) {
+  height: 40px;
+  font-size: 15px;
+  font-weight: 700;
+  text-align: center;
+}
+.pc-info td:nth-child(3) {
+  height: 40px;
+  font-size: 15px;
+  font-weight: 700;
+  text-align: right;
+}
+
+.pc-info th:last-child {
+  text-align: left;
+}
+.pc-info tr:nth-child(2) {
+  height: 3px;
+}
+
+.svg-overview {
+  width: 30px;
+  fill: white;
+}
+
+#overview-cpu-svg {
+  fill: none;
+  stroke: white;
+}
+
+#overview-svg-memory {
+  fill: white;
+  stroke: white;
+}
+
+#svg-overview-ethernet {
+  fill: none;
+  stroke: white;
+}
+
+#overview-pc-buttons {
+  display: flex;
+  gap: 40px;
+  justify-content: center;
+  align-items: center;
+  width: 90%;
+  margin-top: 30px;
+  height: 50px;
+}
+
+.overview-pc-buttons-opmaak {
+  width: 30%;
+  background-color: transparent;
+  color: #202023;
+  font-weight: 800;
+  background-color: #dcdfe1;
+  filter: drop-shadow(0px 15px 20px rgba(0, 0, 0, 0.539));
+  height: 40px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition-duration: 0.7s;
+}
+
+#turn-off {
+  background: rgb(147, 9, 9);
+  color: white;
+}
+
+.overview-pc-buttons-opmaak:hover {
+  transform: scale(101%);
+}
+
+#logout-button-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 40px;
+  height: 45px;
+}
+
+#logout-button {
+  display: flex;
+  gap: 10px;
+  color: white;
+  justify-content: center;
+  align-items: center;
+  height: 35px;
+  width: 30%;
+  border-radius: 10px;
+  border: solid 1px white;
+  text-decoration: none;
+  transition-duration: 1s;
+}
+
+#logout-button-svg {
+  height: 20px;
+  fill: white;
+}
+
+#logout-button:hover {
+  background-color: rgba(147, 9, 9, 0.141);
+}
+
+#logout-button span {
+  color: white;
 }

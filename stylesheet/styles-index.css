@@ -390,11 +390,12 @@ label:active {
   
   }
   
-  #top-popup h2 {
-  color: white;
+
+  #naam-popup {
+    color: white;
   }
   
-  #top-popup span {
+  #email-popup {
     color: grey;
     font-size: 15px;
   }
@@ -441,6 +442,7 @@ label:active {
     border: solid 0.2px rgb(60, 60, 60);
   }
   h2 {
+    font-size: 18px;
     margin-bottom: 10px; /* Ruimte onder de naam */
   }
   
@@ -449,9 +451,6 @@ label:active {
     margin: 5px 0; /* Ruimte tussen de elementen */
   }
   
-  .top-popup span{
-    font-size: 10px;
-  }
   
   hr.item-popup {
     border: 1px solid #fff;
