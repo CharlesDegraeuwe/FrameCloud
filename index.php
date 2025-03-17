@@ -87,17 +87,81 @@ if (!isset($_SESSION['id'])) {
 
     </header>
     <div id="upload-container" class="hidden">
-    <form action="uploads/upload.php">
-        <div id="drop-area">
-            <p>Sleep je bestanden hier naartoe <br>of klik om te uploaden</p>
-             
-                <input type="file" id="file-input" name="upload" class="custom-file-upload"/>
-    
-
-        </div>
-        <input for="file-upload" type="submit" id="submit-button" name="submit" class="upload-input" value="Upload Files">
+    <form action="upload.php" method="post" enctype="multipart/form-data">
+    <div id="drop-area">
+        <p>Sleep je bestanden hier naartoe <br>of klik om te uploaden</p>
+        <input type="file" id="file-input" name="files[]" class="custom-file-upload" multiple />
     </div>
     
+    <!-- Lijst met geselecteerde bestanden -->
+    <ul id="file-list"></ul>
+
+    <input type="submit" id="submit-button" name="submit" class="upload-input" value="Upload Files">
+</form>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const fileInput = document.getElementById("file-input");
+    const fileList = document.getElementById("file-list");
+    const dropArea = document.getElementById("drop-area");
+
+    let filesArray = [];
+
+    // Bestanden weergeven in de lijst
+    function updateFileList() {
+        fileList.innerHTML = "";
+        filesArray.forEach((file, index) => {
+            const listItem = document.createElement("li");
+            listItem.textContent = file.name;
+
+            // Verwijderknop (❌)
+            const removeBtn = document.createElement("button");
+            removeBtn.textContent = "❌";
+            removeBtn.style.marginLeft = "10px";
+            removeBtn.style.cursor = "pointer";
+            removeBtn.onclick = function () {
+                filesArray.splice(index, 1);
+                updateFileList();
+            };
+
+            listItem.appendChild(removeBtn);
+            fileList.appendChild(listItem);
+        });
+
+        // Update de file input met nieuwe FileList
+        const dataTransfer = new DataTransfer();
+        filesArray.forEach((file) => dataTransfer.items.add(file));
+        fileInput.files = dataTransfer.files;
+    }
+
+    // Wanneer een bestand wordt geselecteerd
+    fileInput.addEventListener("change", function () {
+        filesArray = [...fileInput.files];
+        updateFileList();
+    });
+
+    // Drag-and-drop functionaliteit
+    dropArea.addEventListener("dragover", function (event) {
+        event.preventDefault();
+        dropArea.style.border = "2px dashed #000"; // UI feedback
+    });
+
+    dropArea.addEventListener("dragleave", function () {
+        dropArea.style.border = "none";
+    });
+
+    dropArea.addEventListener("drop", function (event) {
+        event.preventDefault();
+        dropArea.style.border = "none";
+
+        let droppedFiles = [...event.dataTransfer.files];
+        filesArray = filesArray.concat(droppedFiles);
+        updateFileList();
+    });
+});
+</script>
+
+
     <div id="popup" class="popup">
         <div id="top-popup" class="popup-content">
                 <h2><span id="naam-popup">naam achternaam</span></h2>

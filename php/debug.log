@@ -1,0 +1,7 @@
+Debug: Gebruikersdata: Array
+(
+    [id] => 4
+    [username] => lennert
+    [email] => devlamincklennert@gmail.com
+    [password] => 123
+)
