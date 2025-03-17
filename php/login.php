@@ -47,7 +47,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         ];
 
         // Redirect to dashboard
-        header("Location: ../index.html");
+        header("Location: ../index.php");
         exit;
     } else {
         // User not found, redirect with error

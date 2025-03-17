@@ -88,6 +88,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // Item toevoegen popup
   const addItem = document.getElementById("add-item");
   const popup2 = document.getElementById("popup-2");
+  const container1 = document.getElementById("upload-container");
   if (addItem && popup2) {
     addItem.addEventListener("click", (event) => {
       event.stopPropagation();
@@ -97,11 +98,15 @@ document.addEventListener("DOMContentLoaded", () => {
     document.addEventListener("click", (event) => {
       if (!popup2.contains(event.target) && !addItem.contains(event.target)) {
         popup2.classList.remove("show");
+        container1.classList.remove("show");
       }
     });
 
     document.addEventListener("keydown", (event) => {
-      if (event.key === "Escape") popup2.classList.remove("show");
+      if (event.key === "Escape") {
+        popup2.classList.remove("show");
+        container1.classList.remove("show");
+      }
     });
   }
 
