@@ -90,11 +90,12 @@ if (!isset($_SESSION['id'])) {
     <form action="uploads/upload.php">
         <div id="drop-area">
             <p>Sleep je bestanden hier naartoe <br>of klik om te uploaden</p>
-                <input type="file" id="file-input" name="upload" class="upload-input"/>
+             
+                <input type="file" id="file-input" name="upload" class="custom-file-upload"/>
     
 
         </div>
-        <input type="submit" id="submit-button" name="submit" class="upload-input" value="Upload Files">
+        <input for="file-upload" type="submit" id="submit-button" name="submit" class="upload-input" value="Upload Files">
     </div>
     
     <div id="popup" class="popup">
