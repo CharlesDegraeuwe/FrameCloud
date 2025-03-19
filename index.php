@@ -72,7 +72,7 @@ if (!isset($_SESSION['id'])) {
             
       
             <div id="profile" onclick="fetchUserData()">
-                <div class="icon-wrapper2">
+                <div class="icon-wrapper">
                     <div id="profile-picture">
                         <img id="profile-image" class="profielfoto" src="" alt="Profielfoto" style="display: none;">
                         <span id="profile-initials"></span>
@@ -87,7 +87,7 @@ if (!isset($_SESSION['id'])) {
 
     </header>
     <div id="upload-container" class="hidden">
-    <form action="upload.php" method="post" enctype="multipart/form-data">
+    <form action="uploads/upload.php" method="post" enctype="multipart/form-data">
     <div id="drop-area">
         <p>Sleep je bestanden hier naartoe <br>of klik om te uploaden</p>
         <input type="file" id="file-input" name="files[]" class="custom-file-upload" multiple />
@@ -96,71 +96,9 @@ if (!isset($_SESSION['id'])) {
     <!-- Lijst met geselecteerde bestanden -->
     <ul id="file-list"></ul>
 
-    <input type="submit" id="submit-button" name="submit" class="upload-input" value="Upload Files">
+    <input type="submit" id="submit-button" name="submit" class="upload-input" value="Upload Files" disabled>
 </form>
-
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-    const fileInput = document.getElementById("file-input");
-    const fileList = document.getElementById("file-list");
-    const dropArea = document.getElementById("drop-area");
-
-    let filesArray = [];
-
-    // Bestanden weergeven in de lijst
-    function updateFileList() {
-        fileList.innerHTML = "";
-        filesArray.forEach((file, index) => {
-            const listItem = document.createElement("li");
-            listItem.textContent = file.name;
-
-            // Verwijderknop (❌)
-            const removeBtn = document.createElement("button");
-            removeBtn.textContent = "❌";
-            removeBtn.style.marginLeft = "10px";
-            removeBtn.style.cursor = "pointer";
-            removeBtn.onclick = function () {
-                filesArray.splice(index, 1);
-                updateFileList();
-            };
-
-            listItem.appendChild(removeBtn);
-            fileList.appendChild(listItem);
-        });
-
-        // Update de file input met nieuwe FileList
-        const dataTransfer = new DataTransfer();
-        filesArray.forEach((file) => dataTransfer.items.add(file));
-        fileInput.files = dataTransfer.files;
-    }
-
-    // Wanneer een bestand wordt geselecteerd
-    fileInput.addEventListener("change", function () {
-        filesArray = [...fileInput.files];
-        updateFileList();
-    });
-
-    // Drag-and-drop functionaliteit
-    dropArea.addEventListener("dragover", function (event) {
-        event.preventDefault();
-        dropArea.style.border = "2px dashed #000"; // UI feedback
-    });
-
-    dropArea.addEventListener("dragleave", function () {
-        dropArea.style.border = "none";
-    });
-
-    dropArea.addEventListener("drop", function (event) {
-        event.preventDefault();
-        dropArea.style.border = "none";
-
-        let droppedFiles = [...event.dataTransfer.files];
-        filesArray = filesArray.concat(droppedFiles);
-        updateFileList();
-    });
-});
-</script>
-
+    </div>
 
     <div id="popup" class="popup">
         <div id="top-popup" class="popup-content">
@@ -190,7 +128,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
        
             <div class="rij-popup">
-                <svg id="log-out-icon" xmlns="http://www.w3.org/2000/svg"  
+                <svg id="log-out-icon" xmlns="http://www.w3.org/2000/svg"       
 	viewBox="0 0 587.91 587.91">
 <g>
 	<g>
@@ -243,15 +181,12 @@ document.addEventListener("DOMContentLoaded", function () {
 		</g>
 	</g>
 </g>
-</svg>
+                </svg>
                 <a href="php/logout.php"><span id="log-out" class="item-popup">Log Out</span></a>
             </div>
         </div>
 
         </div>
-        </form>
-    </div>
-
 
     <div id="sidebar-closer">
         <div id="closer-wrapper">
@@ -516,9 +451,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
     </main>
 </div>
-    <script type="module" src="scripts/script.js"></script>
-    <script src="scripts/upload.js"></script>
     <script src="scripts/index.js"></script>
+    <script src="scripts/script.js"></script>
+    <script src="scripts/upload.js"></script>
     <script src="scripts/close.js"></script>
   </body>
 </html>

@@ -104,7 +104,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     document.addEventListener("keydown", (event) => {
       if (event.key === "Escape") {
-        popup2.classList.remove("show");
+        container1.classList.remove("show");
         container1.classList.remove("show");
       }
     });
