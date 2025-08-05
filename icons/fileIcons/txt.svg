@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Laag_1" data-name="Laag 1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 445.14 457.54">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: url(#Naamloos_verloop_97);
+      }
+
+      .cls-2 {
+        fill: #fff;
+        font-family: SFPro-Semibold, 'SF Pro';
+        font-size: 128.98px;
+        font-variation-settings: 'wdth' 100, 'opsz' 28, 'wght' 590;
+        font-weight: 600;
+      }
+
+      .cls-3 {
+        fill: #f2f1f1;
+        filter: url(#drop-shadow-1);
+      }
+
+      .cls-4 {
+        fill: url(#Naamloos_verloop_111);
+      }
+    </style>
+    <linearGradient id="Naamloos_verloop_111" data-name="Naamloos verloop 111" x1="247.6" y1="45.46" x2="247.6" y2="457.54" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fffcff"/>
+      <stop offset=".22" stop-color="#fbfaff"/>
+      <stop offset=".4" stop-color="#f0f6ff"/>
+      <stop offset=".58" stop-color="#deefff"/>
+      <stop offset=".75" stop-color="#c5e6ff"/>
+      <stop offset=".92" stop-color="#a5daff"/>
+      <stop offset="1" stop-color="#93d3ff"/>
+    </linearGradient>
+    <linearGradient id="Naamloos_verloop_97" data-name="Naamloos verloop 97" x1="160.13" y1="217.5" x2="160.13" y2="413.08" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#80baff"/>
+      <stop offset=".3" stop-color="#7db6ff"/>
+      <stop offset=".55" stop-color="#77abff"/>
+      <stop offset=".8" stop-color="#6c9aff"/>
+      <stop offset="1" stop-color="#6085ff"/>
+    </linearGradient>
+    <filter id="drop-shadow-1" x="160.14" y="0" width="285" height="285" filterUnits="userSpaceOnUse">
+      <feOffset dx="-36.85" dy="31.18"/>
+      <feGaussianBlur result="blur" stdDeviation="25.51"/>
+      <feFlood flood-color="#000" flood-opacity=".16"/>
+      <feComposite in2="blur" operator="in"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g>
+    <path class="cls-4" d="M405.25,176.41v263.83c0,9.55-7.75,17.3-17.3,17.3H107.26c-9.56,0-17.3-7.75-17.3-17.3V62.76c0-9.55,7.74-17.3,17.3-17.3h167.04l130.95,130.95Z"/>
+    <g>
+      <rect class="cls-1" y="217.5" width="320.25" height="195.57" rx="26.1" ry="26.1"/>
+      <text class="cls-2" transform="translate(40.47 360.83)"><tspan x="0" y="0">TXT</tspan></text>
+    </g>
+  </g>
+  <path class="cls-3" d="M405.25,176.41h-101.18c-16.44,0-29.77-13.33-29.77-29.77V45.46l130.95,130.95Z"/>
+</svg>

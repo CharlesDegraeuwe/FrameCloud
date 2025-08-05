@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="stylesheet/styles-account.css">
     
-    <link rel="icon" type=image/x-con href="icons/ico's/favicon.ico">
+    <link rel="icon" type=image/x-con href="icon.png">
     <title>Settings | FrameCloud</title>
   </head>
   <body>
@@ -148,7 +148,7 @@ viewBox="0 0 587.91 587.91">
 </g>
 </g>
               </svg>
-              <a href="php/logout.php"><span id="log-out" class="item-popup">Log Out</span></a>
+              <a href="login.html"><span id="log-out" class="item-popup">Log Out</span></a>
           </div>
       </div>
 
@@ -358,18 +358,18 @@ viewBox="0 0 587.91 587.91">
 
                   <tr>
                     <td>•</td>
-                    <td>Utilazation:</td>
-                    <td><span>50</span>%</td>
+                    <td>Utilization:</td>
+                    <td><span id="cpUtil"></span></td>
                   </tr>
                   <tr>
                     <td>•</td>
                     <td>Speed:</td>
-                    <td><span>4.17</span> GHz</td>
+                    <td><span id="speed"></span> </td>
                   </tr>
                   <tr>
                     <td>•</td>
                     <td>Temperature:</td>
-                    <td><span>45</span>°</td>
+                    <td><span id="cpuTemp"></span></td>
                   </tr>
                 </table>
               </div>
@@ -430,18 +430,18 @@ viewBox="0 0 587.91 587.91">
                   </tr>
                   <tr>
                     <td>•</td>
-                    <td>Utilazation:</td>
-                    <td><span>45</span>%</td>
+                    <td>Utilization:</td>
+                    <td><span id="gpUtil"></span></td>
                   </tr>
                   <tr>
                     <td>•</td>
                     <td>GPU memory:</td>
-                    <td><span>0.9/12</span> GB</td>
+                    <td><span id="memory"></span> </td>
                   </tr>
                   <tr>
                     <td>•</td>
                     <td>Temperature</td>
-                    <td><span>59</span>°</td>
+                    <td><span id="gpuTemp"></span></td>
                   </tr>
                 </table>
               </div>
@@ -505,17 +505,17 @@ viewBox="0 0 587.91 587.91">
                   <tr>
                     <td>•</td>
                     <td>In use:</td>
-                    <td><span>34.2</span> GB</td>
+                    <td><span id="use"></span> </td>
                   </tr>
                   <tr>
                     <td>•</td>
                     <td>Available:</td>
-                    <td><span>90.5</span> GB</td>
+                    <td><span id="available"></span> </td>
                   </tr>
                   <tr>
                     <td>•</td>
                     <td>Cached:</td>
-                    <td><Span>8.6</Span> GB</td>
+                    <td><Span id="cached"></Span> </td>
                   </tr>
              
                 </table>
@@ -541,12 +541,12 @@ viewBox="0 0 587.91 587.91">
                   <tr>
                     <td>•</td>
                     <td>Send:</td>
-                    <td><span>743</span> Kbs</td>
+                    <td><span id="send"></span></td>
                   </tr>
                   <tr>
                     <td>•</td>
                     <td>Receive:</td>
-                    <td>2.3 Mbs</td>
+                    <td><span id="receive"></span></td>
 
                   </tr>
 
@@ -584,9 +584,8 @@ viewBox="0 0 587.91 587.91">
 
 
     </div>
-    <script src="scripts/css/index.js"></script>
-    <script src="scripts/css/script.js"></script>
-    <script src="scripts/css/settings.js"></script>
+        <script type="module" src="Scripts/firebase/auth.js"></script>
+        <script type="module" src="scripts/settings/index.js"></script>
   </body>
   
 </html>

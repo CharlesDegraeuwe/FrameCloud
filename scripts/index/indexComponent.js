@@ -1,10 +1,11 @@
 import { auth, signOutUser } from "../firebase/firebase.js";
+import GenerateFiles from "../index/generateFiles.js";
 import User from "../firebase/user.js";
 export default class indexComponent {
   //fields
   #naam;
   #mail;
-  #permission = false;
+  #permission = true;
   //constructor
   constructor() {
     this.init();
@@ -49,11 +50,18 @@ export default class indexComponent {
     this.popupToHtml();
     this.uploadToHtml();
     this.sideBarToHtml();
+    new GenerateFiles();
   }
 
   displayPerm() {
+    const verwijderd = document.getElementById("verwijderd-treeitem");
+    const add = document.getElementById("add-item");
+    const bin = document.getElementById("bin");
+
     if (!this.#permission) {
-      
+      verwijderd.style.display = "none";
+      add.style.display = "none";
+      bin.style.display = "none";
     }
   }
 

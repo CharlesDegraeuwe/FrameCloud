@@ -1,0 +1,30 @@
+[
+  {
+    "name": "bruiloft.png",
+    "size": 23423423,
+    "type": "image/heic",
+    "modified": "2025-08-05T14:21:00Z",
+    "path": "/root/bruiloft.mp4"
+  },
+  {
+    "name": "contract.pdf",
+    "size": 123412,
+    "type": "application/pdf",
+    "modified": "2025-08-01T10:12:33Z",
+    "path": "/root/pdfs/contract.pdf"
+  },
+  {
+    "name": "fotos.zip",
+    "size": 123412305050,
+    "type": "application/zip",
+    "modified": "2025-08-01T10:12:33Z",
+    "path": "/root/pdfs/fotos.zip"
+  },
+  {
+    "name": "aftermovie.mov",
+    "size": 123230550,
+    "type": "video/mov",
+    "modified": "2025-08-01T10:12:33Z",
+    "path": "/root/pdfs/fotos.zip"
+  }
+]

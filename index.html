@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="stylesheet/styles.css">
     <link rel="stylesheet" href="stylesheet/styles-index.css">
     <link rel="icon" type=image/x-con href="icon.png">
-    <title>Frame Cloud</title>
+    <title>Recent | FrameCloud</title>
   </head>
 
   <body>
@@ -194,6 +194,7 @@
                 <svg 
                 id="download-icon"
                 viewBox="0 0 24 24" 
+                class="disabled"
 
                 fill=#0099ff
                 xmlns="http://www.w3.org/2000/svg">
@@ -206,6 +207,7 @@
             <div id="mail">
                 <svg 
                 id="mail-icon"
+                class="disabled"
                 stroke=#0099ff
                 viewBox="0 0 24 24"  xmlns="http://www.w3.org/2000/svg">
                     <path d="M21 8L17.4392 9.97822C15.454 11.0811 14.4614 11.6326 13.4102 11.8488C12.4798 12.0401 11.5202 12.0401 10.5898 11.8488C9.53864 11.6326 8.54603 11.0811 6.5608 9.97822L3 8M6.2 19H17.8C18.9201 19 19.4802 19 19.908 18.782C20.2843 18.5903 20.5903 18.2843 20.782 17.908C21 17.4802 21 16.9201 21 15.8V8.2C21 7.0799 21 6.51984 20.782 6.09202C20.5903 5.71569 20.2843 5.40973 19.908 5.21799C19.4802 5 18.9201 5 17.8 5H6.2C5.0799 5 4.51984 5 4.09202 5.21799C3.71569 5.40973 3.40973 5.71569 3.21799 6.09202C3 6.51984 3 7.07989 3 8.2V15.8C3 16.9201 3 17.4802 3.21799 17.908C3.40973 18.2843 3.71569 18.5903 4.09202 18.782C4.51984 19 5.07989 19 6.2 19Z"  stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -216,6 +218,7 @@
             <div id="bin">
                 <svg 
                 id="bin-icon" 
+                class="disabled"
                 fill=#0099ff
              viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M16.515,22H7.231a2.361,2.361,0,0,1-2.358-2.359V4a1,1,0,0,1,2,0V19.641a.36.36,0,0,0,.358.359H16.515a.36.36,0,0,0,.358-.359V4a1,1,0,0,1,2,0V19.641A2.361,2.361,0,0,1,16.515,22Z" />
@@ -233,7 +236,7 @@
 
     <div id="application-body">
       <ul class="side-bar-list">
-        <li class="items" role="treeitem" aria-selected="true">
+        <li class="items" role="treeitem" aria-selected="true" id="recent-treeitem">
             <input type="radio" id="tab-recent" name="tab" checked>
             <label for="tab-recent">
           <svg
@@ -256,7 +259,7 @@
           </label>
         </li>
 
-        <li class="items" role="treeitem" >
+        <li class="items" role="treeitem" id="cloud-treeitem">
             <input type="radio" id="tab-bladeren" name="tab">
             <label for="tab-bladeren">
           <svg
@@ -274,7 +277,7 @@
         </label>
         </li>
 
-        <li class="items" role="treeitem">
+        <li class="items" role="treeitem" id="verwijderd-treeitem">
             <input type="radio" id="tab-verwijderd" name="tab">
             <label for="tab-verwijderd">
           <svg
@@ -295,11 +298,6 @@
 
     <main>
         <div class="tabs">
-        
-
-
-
-
             <div id="tab-recent-content" class="tab-content">
                 <div id="nav-bar">
                     <div id="nav-bar-title-row">
@@ -328,21 +326,24 @@
                         
                     <div id="nav-bar-server-data">
                         <div id="server-data-text">
-                            <p class="info"><span id="items">0</span> items, <span id="storage">4 TB</span> beschikbaar</p>
+                            <p class="info"><span id="items">0</span><span id="itemsword"> items, </span><span id="storage">4 TB</span></p>
                         </div>
                     </div>
                 </div>
+                <div class="return-container">
+                    <div id="return-wrapper" class="icon-wrapper"><img src="icons/return.svg" alt="" id="return-button"></div>
+                </div>
+                <div class="server-bucket" id="tab-recent-bucket">
 
-                <div class="server-bucket">
+                    <div class="file-container" id="tab-recent-file-container">
+                           
+                    </div>
 
-                    <!-- <div id="title-server-bucket">
-                        <span>Geen items</span>
-                    </div> -->
-                    
-                    <div class="undertitle-server-bucket">
+                    <div class="undertitle-server-bucket" id="recent-titles">
                         <span>Recente bestanden worden hier weergegeven</span>
                     </div>
                 </div>
+
 
             </div>
 
@@ -444,7 +445,7 @@
     </main>
 </div>
         <script type="module" src="Scripts/firebase/auth.js"></script>
-                <script type="module" src="scripts/index/index.js"></script>
+        <script type="module" src="scripts/index/index.js"></script>
   </body>
 
 </html>

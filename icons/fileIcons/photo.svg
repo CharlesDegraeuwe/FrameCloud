@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Laag_1" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 56.69 56.69">
+  <!-- Generator: Adobe Illustrator 29.7.1, SVG Export Plug-In . SVG Version: 2.1.1 Build 8)  -->
+  <defs>
+    <style>
+      .st0 {
+        fill: none;
+        stroke: #5878e0;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        stroke-width: 1.11px;
+      }
+
+      .st1 {
+        fill: #5878e0;
+        opacity: .1;
+      }
+    </style>
+  </defs>
+  <rect class="st1" width="56.69" height="56.69"/>
+  <g>
+    <rect class="st0" x="20.92" y="20.92" width="14.86" height="14.86" rx="2.79" ry="2.79"/>
+    <path class="st0" d="M20.92,32.06l3.99-3.99c.36-.36.95-.36,1.31,0l3.06,3.06M29.27,31.13l2.59-2.59c.36-.36.95-.36,1.31,0l2.59,2.59M29.27,31.13l2.09,2.09"/>
+  </g>
+</svg>

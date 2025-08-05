@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Laag_1" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 56.69 56.69">
+  <!-- Generator: Adobe Illustrator 29.7.1, SVG Export Plug-In . SVG Version: 2.1.1 Build 8)  -->
+  <defs>
+    <style>
+      .st0 {
+        fill-rule: evenodd;
+      }
+
+      .st0, .st1 {
+        fill: #ea5353;
+      }
+
+      .st1 {
+        opacity: .1;
+      }
+    </style>
+  </defs>
+  <rect class="st1" width="56.69" height="56.69"/>
+  <g id="Page-1">
+    <g id="Icon-Set-Filled">
+      <path id="note-text" class="st0" d="M32.71,24.22h-8.73c-.3,0-.55-.31-.55-.69s.24-.69.55-.69h8.73c.3,0,.55.31.55.69s-.24.69-.55.69h0ZM32.71,28.34h-8.73c-.3,0-.55-.31-.55-.69s.24-.69.55-.69h8.73c.3,0,.55.31.55.69s-.24.69-.55.69h0ZM32.71,32.47h-8.73c-.3,0-.55-.31-.55-.69s.24-.69.55-.69h8.73c.3,0,.55.31.55.69s-.24.69-.55.69h0ZM34.9,17.34h-13.1c-1.2,0-2.18,1.35-2.18,2.87v16.42c0,1.51.97,2.74,2.17,2.74h13.02c1.2,0,2.28-1.24,2.28-2.75v-16.51c0-1.51-.99-2.75-2.18-2.75h0Z"/>
+    </g>
+  </g>
+</svg>
