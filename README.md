@@ -1,6 +1,4 @@
 # FrameCloud
 
-## Welkom bij FrameCloud: Het cloud platform van FrameLabProductions.
+## Videografie distributieplatform.
 
-Om de applicatie te starten open de terminal.\
-Typ `npm start`.
