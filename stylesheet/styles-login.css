@@ -1,4 +1,5 @@
 @import url("styles.css");
+@import "https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css";
 #application-body2 {
   display: flex;
   justify-content: center;
@@ -311,10 +312,178 @@ input[type="checkbox"]:checked::before {
   visibility: hidden;
   pointer-events: none;
   transition: opacity 0.6s, visibility 0s linear 0.6s;
+  overflow-x: hidden;
+  overflow-y: hidden;
+  flex: 1;
 }
 .error-container.show {
   opacity: 1;
   visibility: visible;
   pointer-events: auto;
   transition-delay: 0s;
+}
+
+.popup {
+  display: none;
+  flex-direction: column;
+  position: absolute;
+  overflow: hidden;
+  top: 50px;
+  right: 6px;
+  width: 240px;
+  height: 50px;
+  background-color: #202023;
+  justify-content: center;
+  border-radius: 15px;
+  align-items: top;
+  z-index: 1000;
+  filter: drop-shadow(0px 5px 10px rgba(0, 0, 0, 0.539));
+  transition-duration: 1s;
+  opacity: O;
+}
+
+.popup.show {
+  display: flex;
+  opacity: 1; /* Maak de popup zichtbaar */
+  transform: translateY(0); /* Zet de popup op de juiste positie */
+  animation: 0.5 flipInY ease;
+}
+
+.rij-popup {
+  justify-content: center;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding-left: 10px;
+  width: auto;
+  text-decoration: none;
+  gap: 1vh;
+}
+#probleem {
+  text-decoration: none;
+  transition: 0.3s ease;
+  cursor: pointer;
+}
+
+#probleem:hover {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  transition: 0.3s ease;
+}
+
+#arrow {
+  display: inline-block;
+  stroke: white;
+  stroke-width: 2px;
+  width: 20px;
+}
+
+/* Achtergrond overlay */
+.popup-overlay {
+  display: none;
+  position: fixed;
+  inset: 0; /* top, right, bottom, left = 0 */
+  background-color: rgba(0, 0, 0, 0.3);
+  justify-content: center;
+  align-items: flex-start;
+  padding-top: 17vh;
+  z-index: 2000;
+}
+
+.popup-content {
+  background: #202023;
+  border-radius: 25px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(49, 49, 49, 0.3);
+  color: white;
+  padding: 30px;
+  max-width: 400px;
+  width: 90%;
+  max-height: 400px;
+  height: 90%;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+  position: relative;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 2vh;
+}
+
+#titel-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 1vh;
+}
+
+h2 {
+  font-size: 2.4vh;
+}
+
+#problem_img {
+  height: 2.4vh;
+}
+
+#popup-body {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  flex-direction: column;
+  gap: 3vh;
+  padding: 0vh 2vh;
+}
+
+#intro {
+  width: 100%;
+  line-height: 2.3vh;
+  display: flex;
+  text-align: center;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+#bottom-body {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 2vh;
+  flex-direction: column;
+}
+#contact-opnemen {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+#contact-btns {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  gap: 1vh;
+}
+.contact-btn {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
+  padding: 5px;
+  border-radius: 10px;
+  transition-duration: 1s;
+  height: 4vh;
+  background-color: #50505515;
+}
+
+.contact-btn:hover {
+  background-color: #505055;
+}
+
+.contact-btn svg {
+  height: 3vh;
+  width: auto;
+  stroke: white;
 }

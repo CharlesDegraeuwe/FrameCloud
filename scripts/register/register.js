@@ -128,7 +128,7 @@ async function register(e) {
     }
   } catch (error) {
     console.error("Fout bij registreren:", error.code, error.message);
-    alert(errorMsg);
+    alert(error.message);
   }
 }
 
@@ -144,6 +144,42 @@ document.addEventListener("DOMContentLoaded", () => {
   } else {
     console.warn("Registratieknop niet gevonden");
   }
+  const threedots = document.getElementById("three-dots-wrapper");
+  const popup = document.getElementById("popup");
+  threedots.onclick = () => {
+    popup.classList.toggle("show");
+  };
+
+  document.addEventListener("click", (e) => {
+    if (popup.classList.contains("show")) {
+      const isClickInsidePopup = popup.contains(e.target);
+      const isClickOnButton = threedots.contains(e.target);
+
+      if (!isClickInsidePopup && !isClickOnButton) {
+        popup.classList.remove("show");
+      }
+    }
+  });
+  const overlay = document.getElementById("popupOverlay");
+  const probleem = document.getElementById("probleem");
+  probleem.onclick = () => {
+    overlay.style.display = "flex";
+    popup.classList.remove("animate__fadeOutUp");
+    popup.classList.add("animate__fadeInDown");
+  };
+
+  overlay.addEventListener("click", (e) => {
+    if (e.target === overlay) {
+      closePopup();
+    }
+  });
+
+  function closePopup() {
+    const overlay = document.getElementById("popupOverlay");
+    const popup = document.getElementById("popupContent");
+
+    overlay.style.display = "none";
+  }
 });
 
 function alert(message) {
@@ -154,7 +190,22 @@ function alert(message) {
     return;
   }
 
-  alert.innerText = message;
+  let bericht;
+
+  switch (message) {
+    case "Firebase: Error (auth/email-already-in-use).":
+      bericht = "Email al in gebruik";
+      break;
+
+    case "Firebase: Password should be at least 6 characters (auth/weak-password).":
+      bericht = "Wachtwoord moet minstens 6 tekens zijn";
+      break;
+
+    default:
+      bericht = message;
+  }
+
+  alert.innerText = bericht;
   alert.classList.add("show");
 
   setTimeout(() => {

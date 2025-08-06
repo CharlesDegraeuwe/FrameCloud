@@ -13,6 +13,7 @@ export default class GenerateFiles {
 
   async fetchData() {
     const url = "scripts/testdata/data.json";
+    //const url = "http://192.168.0.147:3000/api/files?client=testdata";
     console.log("fetch aangevraagd");
     try {
       const response = await fetch(url);
@@ -174,6 +175,9 @@ export default class GenerateFiles {
     container.appendChild(itemWrapper);
     itemWrapper.onclick = () => {
       this.selectedSize(file);
+    };
+    itemWrapper.ondblclick = () => {
+      this.requestDownload();
     };
     this.download(file);
   }
@@ -454,11 +458,15 @@ export default class GenerateFiles {
     const download = document.getElementById("download");
     const mail = document.getElementById("mail");
     const remove = document.getElementById("bin");
-    download.onclick = () => {
-      console.log("bestand gedownload");
+    download.onclick = (file) => {
+      this.requestDownload();
     };
     mail.onclick = () => {
       console.log("gemaild");
     };
+  }
+
+  requestDownload(file) {
+    console.log("file bezig met downloaden");
   }
 }

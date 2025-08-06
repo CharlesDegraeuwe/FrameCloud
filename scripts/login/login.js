@@ -102,21 +102,58 @@ document.addEventListener("DOMContentLoaded", () => {
   } else {
     console.warn("Inlogknop niet gevonden");
   }
-});
 
-function alert(message) {
-  const alert = document.getElementById("error-container");
-  if (!alert) {
-    console.error("Alert elementen niet gevonden");
-    alert(message);
-    return;
+  const threedots = document.getElementById("three-dots-wrapper");
+  const popup = document.getElementById("popup");
+  threedots.onclick = () => {
+    popup.classList.toggle("show");
+  };
+
+  document.addEventListener("click", (e) => {
+    if (popup.classList.contains("show")) {
+      const isClickInsidePopup = popup.contains(e.target);
+      const isClickOnButton = threedots.contains(e.target);
+
+      if (!isClickInsidePopup && !isClickOnButton) {
+        popup.classList.remove("show");
+      }
+    }
+  });
+  const overlay = document.getElementById("popupOverlay");
+  const probleem = document.getElementById("probleem");
+  probleem.onclick = () => {
+    overlay.style.display = "flex";
+    popup.classList.remove("animate__fadeOutUp");
+    popup.classList.add("animate__fadeInDown");
+  };
+
+  overlay.addEventListener("click", (e) => {
+    if (e.target === overlay) {
+      closePopup();
+    }
+  });
+
+  function closePopup() {
+    const overlay = document.getElementById("popupOverlay");
+    const popup = document.getElementById("popupContent");
+
+    overlay.style.display = "none";
   }
 
-  alert.innerText = message;
-  alert.classList.add("show");
+  function alert(message) {
+    const alert = document.getElementById("error-container");
+    if (!alert) {
+      console.error("Alert elementen niet gevonden");
+      alert(message);
+      return;
+    }
 
-  setTimeout(() => {
-    alert.classList.remove("show");
-    alert.innerText = "";
-  }, 5000);
-}
+    alert.innerText = message;
+    alert.classList.add("show");
+
+    setTimeout(() => {
+      alert.classList.remove("show");
+      alert.innerText = "";
+    }, 5000);
+  }
+});
